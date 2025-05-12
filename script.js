@@ -18,16 +18,16 @@ function loadActivities() {
 // Function to add activity to the list
 function addActivityToList(activity) {
     const activityItem = document.createElement('div');
-    activityItem.classList.add('bg-gradient-to-r', 'from-gray-800', 'to-gray-700', 'rounded-md', 'p-4', 'shadow-sm', 'border', 'border-gray-600', 'border-opacity-50');
+    activityItem.classList.add('activity-item');
     activityItem.innerHTML = `
-        <div class="flex justify-between items-center">
-            <div>
-                <p class="text-lg font-semibold text-white">${activity.name}</p>
-                <p class="text-gray-300">${activity.activity}</p>
-                <p class="text-gray-300"><span class="font-semibold">Location:</span> ${activity.location}</p>
-                <p class="text-sm text-gray-400">${formatDatetime(activity.datetime)}</p>
+        <div class="activity-content">
+            <div class="activity-details">
+                <p class="activity-name">${activity.name}</p>
+                <p class="activity-text">${activity.activity}</p>
+                <p class="activity-location"><span>Location:</span> ${activity.location}</p>
+                <p class="activity-time">${formatDatetime(activity.datetime)}</p>
             </div>
-            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1.5 px-3 rounded focus:outline-none focus:shadow-outline text-xs transition duration-300 ease-in-out" onclick="deleteActivity('${activity.datetime}')">Delete</button>
+            <button class="delete-button" onclick="deleteActivity('${activity.datetime}')">Delete</button>
         </div>
     `;
     activityList.appendChild(activityItem);
